@@ -76,4 +76,4 @@ function sendMsg(channelId, text, option={}){
     .catch(console.error);
 }
 
-hogepiyo
+hogehoge
