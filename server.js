@@ -75,3 +75,5 @@ function sendMsg(channelId, text, option={}){
     .then(console.log("メッセージ送信: " + text + JSON.stringify(option)))
     .catch(console.error);
 }
+
+hogehoge
