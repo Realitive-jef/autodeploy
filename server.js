@@ -32,7 +32,7 @@ http.createServer(function(req, res){
 
 client.on('ready', message =>{
   console.log('Bot is Ready!');
-  client.user.setPresence({ activity: { name: '修正中～' } });
+  client.user.setPresence({ activity: { name: 'モココ二シテヤルノ' } });
 });
 
 client
@@ -47,7 +47,7 @@ client
             if (result < 200) {
                 message.reply(`う～ん。。。${result}連！`);
             }
-          } else message.reply(`はい`);
+          } else message.reply(`は～い`);
       }
 });
 
