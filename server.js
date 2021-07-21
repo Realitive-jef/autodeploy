@@ -42,20 +42,14 @@ client
           return;
       }
       if (message.mentions.users.find(user => user.id === client.user.id)) {
-          message.reply(message.content);
+           if (message.content.match(/ガチャ/))  {
+            const result = Math.floor(Math.random() * 20 + 1) * 10;
+            if (result < 200) {
+                message.reply(`う～ん。。。${result}連！`);
+            }
+          } else message.reply(`はい`);
       }
-      if  (message.content.match(/ガチャ/))  {
-        const result = Math.floor(Math.random() * 20 + 1) * 10;
-        if (result < 200) {
-            message.reply(`${result}連`);
-        }
-    }
 });
-
-function lottery(channelId, arr){
-  let random = Math.floor( Math.random() * arr.length);
-  sendMsg(channelId, arr[random]);
-};
 
 if(process.env.DISCORD_BOT_TOKEN == undefined){
  console.log('DISCORD_BOT_TOKEN　undefined');
@@ -75,5 +69,3 @@ function sendMsg(channelId, text, option={}){
     .then(console.log("メッセージ送信: " + text + JSON.stringify(option)))
     .catch(console.error);
 }
-
-hogera
