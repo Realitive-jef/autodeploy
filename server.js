@@ -33,7 +33,7 @@ http
           if (dataObject.debug !== undefined && dataObject.debug == "false") {
             msgChannelId = mainChannelId;
           }
-          let msgMention = "<@270557414510690305>";
+          let msgMention = "<@&817227885470416927>";
           let videoId = dataObject.url.replace("https://youtu.be/", "");
           let emb = {
             embed: {
@@ -54,7 +54,7 @@ http
               }
             }
           };
-          client.channels.cache.get(msgChannelId).send(msgMention + " の新着動画モコ！", emb);
+          client.channels.cache.get(msgChannelId).send(の新着動画モコ！", emb);
         }
         res.end();
       });
