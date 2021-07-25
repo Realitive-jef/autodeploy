@@ -54,7 +54,9 @@ http
               }
             }
           };
-          client.channels.cache.get(msgChannelId).send(msgMention+"の新着動画モコ！", emb);
+          //  /** @type {import('discord.js').TextChannel} */
+          const channel = client.guilds.resolve(309556801400209408).channnels.resovle(829296472445026314);
+          channels.send(msgMention+"の新着動画モコ！", emb);
         }
         res.end();
       });
