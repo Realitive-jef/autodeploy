@@ -54,7 +54,7 @@ http
               }
             }
           };
-          client.channels.cache.get(msgChannelId).send(の新着動画モコ！", emb);
+          client.channels.cache.get(msgChannelId).send(msgMention+"の新着動画モコ！", emb);
         }
         res.end();
       });
