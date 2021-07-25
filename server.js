@@ -5,8 +5,8 @@ const client = new discord.Client();
 
 // Youtube投稿通知
 
-const debugChannelId = "866832608386088990";
-const mainChannelId = "866832608386088990";
+const debugChannelId = "817238014282563655";
+const mainChannelId = "817238014282563655";
 
 http
   .createServer(function(req, res) {
@@ -38,7 +38,7 @@ http
           let emb = {
             embed: {
               author: {
-                name: "Eruru/えるるぅ",
+                name: "Sharoro/しゃろろぉ",
                 url:
                   "https://www.youtube.com/c/Eruru%E3%81%88%E3%82%8B%E3%82%8B%E3%81%85/featured",
                 icon_url:
@@ -54,7 +54,7 @@ http
               }
             }
           };
-          client.channels.cache.get(msgChannelId).send("Eruru/えるるぅの新着動画モコ！", emb);
+          client.channels.cache.get(msgChannelId).send(msgMention + " の新着動画モコ！", emb);
         }
         res.end();
       });
