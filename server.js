@@ -1,3 +1,10 @@
+if (process.env.DISCORD_BOT_TOKEN === undefined) {
+  console.log("DISCORD_BOT_TOKEN　undefined");
+  process.exit(1);
+}
+
+client.login(process.env.DISCORD_BOT_TOKEN);
+
 const http = require("http");
 const querystring = require("querystring");
 const discord = require("discord.js");
@@ -10,7 +17,7 @@ const mainChannelId = "817238014282563655";
 
 http
   .createServer(function(req, res) {
-    if (req.method == "POST") {
+    if (req.method === "POST") {
       let data = "";
       req.on("data", function(chunk) {
         data += chunk;
@@ -23,12 +30,12 @@ http
         }
         var dataObject = querystring.parse(data);
         console.log("post:" + dataObject.type);
-        if (dataObject.type == "wake") {
+        if (dataObject.type === "wake") {
           console.log("Woke up in post");
           res.end();
           return;
         }
-        if (dataObject.type == "newEruruVideo") {
+        if (dataObject.type === "newEruruVideo") {
           let msgChannelId = debugChannelId;
           if (dataObject.debug !== undefined && dataObject.debug == "false") {
             msgChannelId = mainChannelId;
@@ -55,12 +62,12 @@ http
             }
           };
           //  /** @type {import('discord.js').TextChannel} */
-          const channel = client.guilds.resolve(309556801400209408).channnels.resovle(829296472445026314);
+          const channel = client.guilds.fetch(309556801400209408).channnels.fetch(829296472445026314);
           channels.send(msgMention+"の新着動画モコ！", emb);
         }
         res.end();
       });
-    } else if (req.method == "GET") {
+    } else if (req.method === "GET") {
       res.writeHead(200, { "Content-Type": "text/plain" });
       res.end("Discord bot is active now \n");
     }
@@ -90,9 +97,3 @@ client
     }
   });
 
-if (process.env.DISCORD_BOT_TOKEN == undefined) {
-  console.log("DISCORD_BOT_TOKEN　undefined");
-  process.exit(0);
-}
-
-client.login(process.env.DISCORD_BOT_TOKEN);
